@@ -1,0 +1,7 @@
+1 structure = config, controler, middlewafe, model, router
+2 model
+3 controller CRUD Block UnBlock + Routes
+4 authmiddlewere { authMiddleware, isAdmin }
+5 util => validateMongoDbID 
+
+
