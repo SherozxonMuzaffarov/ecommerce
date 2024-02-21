@@ -3,9 +3,11 @@ const createError = require('http-errors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser')
 const dbConnect = require('./config/dbConnect');
-const authRouter = require('./routes/authRoute');
 const { errorHandler, notFound } = require('./middleware/errorHandler');
 require('dotenv').config();
+
+const authRouter = require('./routes/authRoute');
+const productRouter = require('./routes/productRoute')
 
 const app = express();
 app.use(express.json());
@@ -16,6 +18,7 @@ app.use(cookieParser())
 dbConnect()
 
 app.use('/api/user', authRouter)
+app.use('/api/product', productRouter)
 
 app.use(errorHandler)
 app.use(notFound)
